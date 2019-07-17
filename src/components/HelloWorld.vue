@@ -2,21 +2,23 @@
     <div class="hello">
         <h1>{{ msg }}</h1>
 
-        <h1>メソッドイベントハンドラ</h1>
+        <h1>イベントハンドラ</h1>
+
+        <h2>メソッドイベントハンドラ</h2>
         <button v-on:click="handleClick">クリック</button><br>
 
-        <h1>インラインイベントハンドラ</h1>
+        <h2>インラインイベントハンドラ</h2>
         <button v-on:click="count++">クリック</button><br>
         <button v-on:click="handleClick2($event, msg)">クリック</button><br>
 
-        <h1>使用可能なイベント</h1>
+        <h2>使用可能なイベント</h2>
         <img v-bind:src="'./logo.png'" v-on:load="show=true" v-bind:class="{hide: !show}">
         <div v-on:dragstart="handler" draggable="true" id="hoge">ドラッグ可能</div>
 
-        <h1>フォーム入力の取得</h1>
+        <h2>フォーム入力の取得</h2>
         <input v-bind:value="message" v-on:input="handleInput">
 
-        <h1>イベント修飾子</h1>
+        <h2>イベント修飾子</h2>
         <p>.right</p>
         <div @click.right="handler" id="right">example</div>
         <!-- 右クリック時のコンテキストメニューを表示させない -->
@@ -45,6 +47,65 @@
             </div>
         </div>
 
+        <h1>フォーム入力バインディング</h1>
+
+        <h2>v-modelの使い方</h2>
+
+        <input v-model="message">
+        <p>{{message}}</p>
+
+        <h2>複数行テキスト</h2>
+        <textarea v-model="message"></textarea>
+        <pre>{{message}}</pre>
+
+        <h2>チェックボックス</h2>
+        <h3>単一要素</h3>
+        <label>
+            <input type="checkbox" v-model="val">チェックボックス
+        </label>
+
+        <h3>複数要素</h3>
+        <label><input type="checkbox" v-model="multiVal" value="A">A</label>
+        <label><input type="checkbox" v-model="multiVal" value="B">B</label>
+        <label><input type="checkbox" v-model="multiVal" value="C">C</label>
+
+        <h3>ラジオボタン</h3>
+        <label><input type="radio" v-model="radioVal" value="A">A</label>
+        <label><input type="radio" v-model="radioVal" value="B">B</label>
+        <label><input type="radio" v-model="radioVal" value="C">C</label>
+
+        <h3>セレクトボックス 単一選択</h3>
+        <select v-model="selectVal">
+            <option disabled="disabled">選択してください</option>
+            <option value="a">A</option>
+            <option value="b">B</option>
+            <option value="c">C</option>
+            <option value="d">D</option>
+        </select>
+
+        <h3>セレクトボックス 複数選択</h3>
+        <select v-model="selectMultiVal" multiple>
+            <option disabled="disabled">選択してください</option>
+            <option value="a">A</option>
+            <option value="b">B</option>
+            <option value="c">C</option>
+            <option value="d">D</option>
+        </select>
+
+        <h3>画像ファイル</h3>
+        <input type="file" @change="fileChange">
+        <div v-if="preview"><img v-bind:src="preview"></div>
+
+        <h3>その他の入力タイプ</h3>
+        <input type="range" v-model.number="rangeVal"> {{rangeVal}}
+
+        <h3>修飾子</h3>
+        <input type="text" v-model.number="price">{{price}}
+        <br>
+        <input type="text" v-model.lazy="text">
+        <pre>{{text}}</pre>
+
+        <h2>マウント要素外のイベントと操作</h2>
     </div>
 </template>
 
@@ -58,7 +119,16 @@
             return {
                 show: false,
                 message: 'Hello!',
-                count: 0
+                count: 0,
+                val: false,
+                multiVal: [],
+                radioVal: '',
+                selectVal: '',
+                selectMultiVal: [],
+                preview: '',
+                rangeVal: 50,
+                price: 1000,
+                text: ''
             }
         },
         methods: {
@@ -80,6 +150,12 @@
             },
             print(str) {
                 console.log(str)
+            },
+            fileChange(event) {
+                let file = event.target.files[0]
+                if (file) {
+                    this.preview = window.URL.createObjectURL(file)
+                }
             }
         }
     }
