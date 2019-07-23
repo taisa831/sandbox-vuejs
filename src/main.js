@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import smooth from "vue-smoothscroll";
 import EventHandler from "./components/EventHandler";
 
+Vue.config.devtools = true
 Vue.config.productionTip = false
 Vue.use(smooth)
 Vue.use(VueRouter)
