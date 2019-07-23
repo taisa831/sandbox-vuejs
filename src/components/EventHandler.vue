@@ -12,7 +12,7 @@
         クリックでコンソールに表示：<button v-on:click="handleClick2($event, message)">クリック</button><br>
 
         <h2 id="e3">使用可能なイベント</h2>
-        ふわっとロード：<img v-bind:src="'./logo.png'" v-on:load="show=true" v-bind:class="{hide: !show}"><br>
+        ふわっとロード：<img v-bind:src="'/logo.png'" v-on:load="show=true" v-bind:class="{hide: !show}"><br>
         ドラッグイベント：<span v-on:dragstart="handler" draggable="true" id="hoge">ドラッグ可能</span>
 
         <h2 id="e4">フォーム入力の取得</h2>
