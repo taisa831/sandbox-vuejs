@@ -1,34 +1,42 @@
 <template>
-    <div id="app">
-        <headerView></headerView>
+    <div id="page">
+        <header-view></header-view>
         <div class="wrapper clearfix">
             <router-view></router-view>
-            <sideMenuView></sideMenuView>
+            <p v-if="sideMenuPage === 3">
+                <side-navi-view></side-navi-view>
+            </p>
         </div>
-        <footerView></footerView>
+        <footer-view></footer-view>
     </div>
 </template>
 
 <script>
     import headerView from './components/Header'
-    import sideMenuView from './components/Sidemenu'
+    import sideNaviView from './components/SideNavi3'
     import footerView from './components/Footer'
 
     export default {
       data() {
         return {
+          sideMenuPage: ''
         }
       },
       components: {
         headerView,
-        sideMenuView,
+        sideNaviView,
         footerView
       },
+      created() {
+        if (this.$route.path.indexOf('neko/3') != -1) {
+          this.sideMenuPage = 3
+        }
+      }
     }
 </script>
 
 <style>
-    #app {
+    #page {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;

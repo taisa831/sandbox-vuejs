@@ -44,7 +44,7 @@
 
 <script>
   export default {
-    name: 'Sidemenu',
+    name: 'SideNavi3',
     data() {
       return {
       }
