@@ -11,7 +11,7 @@ Vue.use(VueRouter)
 
 // route
 const routes = [
-  {path: '/neko3', component: EventHandler, name: 'EventHandler'},
+  {path: '/neko/3', component: EventHandler, name: 'EventHandler'},
 ];
 
 const router = new VueRouter({
