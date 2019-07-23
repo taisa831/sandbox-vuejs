@@ -113,6 +113,10 @@
         <p v-bind:class="{ compact: scrollY > 200}" id="mo1">200pxより下にスクロールしたら .compact クラスを付与</p>
 
         <div id="mo2" @click="scrollTop">ページ上部へ移動</div>
+
+        <div>
+            ソースコード：<a href="https://github.com/taisa831/sandbox-vuejs">https://github.com/taisa831/sandbox-vuejs</a>
+        </div>
     </div>
 </template>
 
