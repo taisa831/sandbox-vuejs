@@ -1,39 +1,41 @@
 <template>
     <div class="main">
-        <h1>イベントハンドラ</h1>
+        <h1>イベントとフォーム入力の受け取り</h1>
 
-        <h2>メソッドイベントハンドラ</h2>
+        <h1>イベントハンドリング</h1>
+
+        <h2 id="e1">メソッドイベントハンドラ</h2>
         クリックでプラスプラス1：<button v-on:click="handleClick">クリック</button><br>
 
-        <h2>インラインイベントハンドラ</h2>
+        <h2 id="e2">インラインイベントハンドラ</h2>
         クリックでプラスプラス1：<button v-on:click="count++">クリック</button><br>
         クリックでコンソールに表示：<button v-on:click="handleClick2($event, message)">クリック</button><br>
 
-        <h2>使用可能なイベント</h2>
+        <h2 id="e3">使用可能なイベント</h2>
         ふわっとロード：<img v-bind:src="'./logo.png'" v-on:load="show=true" v-bind:class="{hide: !show}"><br>
         ドラッグイベント：<span v-on:dragstart="handler" draggable="true" id="hoge">ドラッグ可能</span>
 
-        <h2>フォーム入力の取得</h2>
+        <h2 id="e4">フォーム入力の取得</h2>
         <input v-bind:value="message" v-on:input="handleInput">
 
-        <h2>イベント修飾子</h2>
+        <h2 id="e5">イベント修飾子</h2>
         <h3>.right</h3>
         右クリックでコンテキストメニューがでる：<span @click.right="handler" id="right">example</span><br>
         右クリックでコンテキストメニューを表示させない：<span @click.right.prevent="handler" id="right-prevent">example</span>
 
-        <h3>.stop</h3>
+        <h3 id="e6">.stop</h3>
         <div @click="print('div1')">
             div1
             <a href="#top" @click.stop="print('div2')">div2</a>
         </div>
 
-        <h3>.prevent</h3>
+        <h3 id="e7">.prevent</h3>
         <div @click="print('div1')">
             div1
             <a href="#top" @click.prevent="print('div2')">div2</a>
         </div>
 
-        <h3>.capture</h3>
+        <h3 id="e8">.capture</h3>
         <div @click.capture="print('div1')">
             div1
             <div @click="print('div2')">
@@ -46,16 +48,16 @@
 
         <h1>フォーム入力バインディング</h1>
 
-        <h2>v-modelの使い方</h2>
+        <h2 id="m1">v-modelの使い方</h2>
 
         <input v-model="message">
         <p>{{message}}</p>
 
-        <h2>複数行テキスト</h2>
+        <h2 id="m2">複数行テキスト</h2>
         <textarea v-model="message"></textarea>
         <pre>{{message}}</pre>
 
-        <h2>チェックボックス</h2>
+        <h2 id="m3">チェックボックス</h2>
         <h3>単一要素</h3>
         <label>
             <input type="checkbox" v-model="val">チェックボックス
@@ -66,12 +68,13 @@
         <label><input type="checkbox" v-model="multiVal" value="B">B</label>
         <label><input type="checkbox" v-model="multiVal" value="C">C</label>
 
-        <h2>ラジオボタン</h2>
+        <h2 id="m4">ラジオボタン</h2>
         <label><input type="radio" v-model="radioVal" value="A">A</label>
         <label><input type="radio" v-model="radioVal" value="B">B</label>
         <label><input type="radio" v-model="radioVal" value="C">C</label>
 
-        <h2>セレクトボックス 単一選択</h2>
+        <h2 id="m5">セレクトボックス</h2>
+        <h3>単一要素</h3>
         <select v-model="selectVal">
             <option disabled="disabled">選択してください</option>
             <option value="a">A</option>
@@ -80,7 +83,7 @@
             <option value="d">D</option>
         </select>
 
-        <h2>セレクトボックス 複数選択</h2>
+        <h3>複数選択</h3>
         <select v-model="selectMultiVal" multiple>
             <option disabled="disabled">選択してください</option>
             <option value="a">A</option>
@@ -89,14 +92,14 @@
             <option value="d">D</option>
         </select>
 
-        <h2>画像ファイル</h2>
+        <h2 id="m6">画像ファイル</h2>
         <input type="file" @change="fileChange">
         <div v-if="preview"><img v-bind:src="preview"></div>
 
-        <h2>その他の入力タイプ</h2>
+        <h2 id="m7">その他の入力タイプ</h2>
         <input type="range" v-model.number="rangeVal"> {{rangeVal}}
 
-        <h2>修飾子</h2>
+        <h2 id="m8">修飾子</h2>
 
         <h3>.number</h3>
         <input type="text" v-model.number="price">
@@ -107,9 +110,9 @@
         <pre>{{text}}</pre>
 
         <h2>マウント要素外のイベントと操作</h2>
-        <p v-bind:class="{ compact: scrollY > 200}">200pxより下にスクロールしたら .compact クラスを付与</p>
+        <p v-bind:class="{ compact: scrollY > 200}" id="mo1">200pxより下にスクロールしたら .compact クラスを付与</p>
 
-        <div @click="scrollTop">ページ上部へ移動</div>
+        <div id="mo2" @click="scrollTop">ページ上部へ移動</div>
     </div>
 </template>
 

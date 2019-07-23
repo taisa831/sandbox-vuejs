@@ -1,15 +1,16 @@
 <template>
     <header class="sidemenu">
-        <h2 class="heading">イベントハンドラ</h2>
+        <h2 class="heading">イベントとフォーム入力の受け取り</h2>
+        <h2 class="heading">イベントハンドリング</h2>
         <ul class="documents">
             <li>
                 <h3 class="title"></h3>
                 <ul>
-                    <li><a href="#">メソッドイベントハンドラ</a></li>
-                    <li><a href="#">インラインイベントハンドラ</a></li>
-                    <li><a href="#">使用可能なイベント</a></li>
-                    <li><a href="#">フォーム入力の取得</a></li>
-                    <li><a href="#">イベント修飾子</a></li>
+                    <li><a href="#e1">メソッドイベントハンドラ</a></li>
+                    <li><a href="#e2">インラインイベントハンドラ</a></li>
+                    <li><a href="#e3">使用可能なイベント</a></li>
+                    <li><a href="#e4">フォーム入力の取得</a></li>
+                    <li><a href="#e5">イベント修飾子</a></li>
                 </ul>
             </li>
         </ul>
@@ -18,14 +19,23 @@
             <li>
                 <h3 class="title"></h3>
                 <ul>
-                    <li><a href="#">v-modelの使い方</a></li>
-                    <li><a href="#">複数行テキスト</a></li>
-                    <li><a href="#">チェックボックス</a></li>
-                    <li><a href="#">ラジオボタン</a></li>
-                    <li><a href="#">セレクトボックス単一選択</a></li>
-                    <li><a href="#">セレクトボックス複数選択</a></li>
-                    <li><a href="#">修飾子</a></li>
-                    <li><a href="#">マウント要素外のイベントと操作</a></li>
+                    <li><a href="#m1">v-modelの使い方</a></li>
+                    <li><a href="#m2">複数行テキスト</a></li>
+                    <li><a href="#m3">チェックボックス</a></li>
+                    <li><a href="#m4">ラジオボタン</a></li>
+                    <li><a href="#m5">セレクトボックス単一選択</a></li>
+                    <li><a href="#m6">画像ファイル</a></li>
+                    <li><a href="#m7">修飾子</a></li>
+                </ul>
+            </li>
+        </ul>
+        <h2 class="heading">マウント要素街のイベントと操作</h2>
+        <ul class="documents">
+            <li>
+                <h3 class="title"></h3>
+                <ul>
+                    <li><a href="#mo1">スクロールイベントの取得</a></li>
+                    <li><a href="#mo2">スムーススクロールの実装</a></li>
                 </ul>
             </li>
         </ul>
