@@ -39,16 +39,37 @@
                 </ul>
             </li>
         </ul>
+        <h2>親のデータを更新する</h2>
+        <ul class="documents">
+            <li>
+                <h3 class="title"></h3>
+                <ul>
+                    <li><span v-on:click="updateParentData">親のデータ更新</span></li>
+                </ul>
+            </li>
+        </ul>
     </header>
 </template>
 
 <script>
   export default {
     name: 'SideNavi3',
+    props: {
+      val: String
+    },
     data() {
       return {
       }
     },
+    created() {
+      console.log(this.val)
+      //this.val = '子で変更' ← NG
+    },
+    methods: {
+      updateParentData() {
+        this.$emit('child-event', '子からデータ更新')
+      }
+    }
   }
 </script>
 

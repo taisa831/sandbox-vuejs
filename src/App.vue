@@ -4,7 +4,7 @@
         <div class="wrapper clearfix">
             <router-view></router-view>
             <p v-if="sideMenuPage === 3">
-                <side-navi-view></side-navi-view>
+                <event-handler-side-navi-view v-bind:val="childVal" v-on:child-event="parentsMethod"></event-handler-side-navi-view>
             </p>
         </div>
         <footer-view></footer-view>
@@ -13,23 +13,32 @@
 
 <script>
     import headerView from './components/Header'
-    import sideNaviView from './components/SideNavi3'
+    import EventHandlerSideNaviView from './components/EventHandlerSideNavi'
     import footerView from './components/Footer'
+    import EventHandler from "./components/EventHandler";
 
     export default {
       data() {
         return {
-          sideMenuPage: ''
+          sideMenuPage: '',
+          childVal: 'これは子'
         }
       },
       components: {
+        EventHandler,
         headerView,
-        sideNaviView,
+        EventHandlerSideNaviView,
         footerView
       },
       created() {
         if (this.$route.path.indexOf('neko/3') != -1) {
           this.sideMenuPage = 3
+        }
+      },
+      methods: {
+        parentsMethod(str) {
+          this.childVal = str
+          console.log(this.childVal)
         }
       }
     }

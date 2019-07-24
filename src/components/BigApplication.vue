@@ -1,19 +1,25 @@
 <template>
     <div class="main">
+        <p>{{ scrollY }}</p>
     </div>
 </template>
 
 <script>
+
   export default {
-    name: 'VueRouter',
+    name: 'BigApplication',
     data() {
       return {
       }
     },
     created() {
     },
+    computed: {
+      scrollY() {
+        return this.$window.scrollY
+      }
+    },
     methods: {
-
     }
   }
 </script>
