@@ -71,6 +71,9 @@
           }
           await axios.post(this.baseUrl + 'todo', JSON.stringify(params))
           this.getTodo()
+
+          this.inputField = ''
+
         } catch (error) {
           console.log(error)
         }
