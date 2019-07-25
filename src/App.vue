@@ -4,11 +4,11 @@
         <div v-if="sideMenuPage" class="wrapper clearfix">
             <router-view></router-view>
             <p><event-handler-side-navi-view v-bind:val="childVal" v-on:child-event="parentsMethod"></event-handler-side-navi-view></p>
+            <footer-view></footer-view>
         </div>
         <div v-else class="singleWrapper">
             <router-view></router-view>
         </div>
-        <footer-view></footer-view>
     </div>
 </template>
 
