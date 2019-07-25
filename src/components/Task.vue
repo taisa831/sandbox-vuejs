@@ -59,6 +59,11 @@
         }
       },
       async addTodo() {
+
+        if (!this.inputField) {
+          return
+        }
+
         try {
           let params = {
             'text': this.inputField,
@@ -112,6 +117,7 @@
         position: relative;
         width: 280px;
         margin: auto;
+        display: block;
     }
     .inputWrapper input[type='text'] {
         font: 15px/24px sans-serif;
@@ -136,7 +142,7 @@
     }
     .addBtn {
         position: relative;
-        display: inline-block;
+        display: block;
         padding: 0.25em 0.5em;
         text-decoration: none;
         color: #FFF;
@@ -186,12 +192,12 @@
         text-align: right;
         margin-right: 20px;
         width: 100%;
-        display: inline-block;
-        font-size: 15px;
+        display: block;
+        font-size: 20px;
         cursor: pointer;
     }
 
-    @media screen and (max-width:480px){
+    @media screen and (max-width:520px){
         ul {
             list-style: none;
             padding: 0;
