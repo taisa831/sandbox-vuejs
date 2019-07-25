@@ -9,6 +9,7 @@ import EventHandler from "./components/EventHandler";
 import Product from "./components/Product";
 import BigApplication from "./components/BigApplication"
 import ChapterVuex from "./components/ChapterVuex";
+import Task from "./components/Task";
 
 Vue.config.devtools = true
 Vue.config.productionTip = false
@@ -40,7 +41,8 @@ const routes = [
   {path: '/vuejs/neko/3', component: EventHandler, name: 'EventHandler'},
   {path: '/vuejs/neko/7', component: BigApplication, name: 'BigApplication'},
   {path: '/vuejs/neko/8', component: ChapterVuex, name: 'ChapterVuex'},
-  {path: '/vuejs/product', component: Product, name: 'Product'}
+  {path: '/vuejs/product', component: Product, name: 'Product'},
+  {path: '/vuejs/tasks', component: Task, name: 'Task'}
 ];
 
 const router = new VueRouter({
