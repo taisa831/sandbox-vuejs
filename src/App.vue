@@ -1,11 +1,12 @@
 <template>
     <div id="page">
         <header-view></header-view>
-        <div class="wrapper clearfix">
+        <div v-if="sideMenuPage" class="wrapper clearfix">
             <router-view></router-view>
-            <p v-if="sideMenuPage === 3">
-                <event-handler-side-navi-view v-bind:val="childVal" v-on:child-event="parentsMethod"></event-handler-side-navi-view>
-            </p>
+            <p><event-handler-side-navi-view v-bind:val="childVal" v-on:child-event="parentsMethod"></event-handler-side-navi-view></p>
+        </div>
+        <div v-else class="singleWrapper">
+            <router-view></router-view>
         </div>
         <footer-view></footer-view>
     </div>
@@ -56,6 +57,9 @@
     .wrapper {
         width: 970px;
         margin: 30px auto 40px;
+    }
+    .singleWrapper {
+        width: 100%;
     }
     .clearfix::after {
         content: '';

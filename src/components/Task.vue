@@ -110,7 +110,7 @@
     }
     .inputWrapper {
         position: relative;
-        width: 30%;
+        width: 280px;
         margin: auto;
     }
     .inputWrapper input[type='text'] {
@@ -157,7 +157,7 @@
         border-top-left-radius: .25rem;
         border-top-right-radius: .25rem;
         margin: 10px auto;
-        width: 70%;
+        width: 50%;
         height: 80px;
     }
     .todo {
@@ -202,12 +202,12 @@
             border-top-left-radius: .25rem;
             border-top-right-radius: .25rem;
             margin: 10px 0;
-            width: 80%;
+            width: 100%;
             height: 80px;
             padding: 0;
         }
         .inputWrapper{
-            margin: 0px 200px
+            margin: 0px auto
         }
     }
 </style>
