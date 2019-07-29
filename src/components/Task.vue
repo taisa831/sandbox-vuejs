@@ -44,6 +44,7 @@
         inputField: '',
         isActive: false,
         baseUrl: 'http://sandbox.taisablog.com/go/api/v1/'
+        // baseUrl: 'http://localhost:9000/api/v1/'
       }
     },
     created() {
@@ -80,7 +81,7 @@
       },
       async deleteTodo(todo) {
         try {
-          await axios.post(this.baseUrl + 'todo/delete/' + todo.ID)
+          await axios.delete(this.baseUrl + 'todo/' + todo.ID)
           this.getTodo()
         } catch (e) {
           console.log(e)
