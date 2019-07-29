@@ -98,7 +98,7 @@
           let params = {
             'status': status
           }
-          await axios.post(this.baseUrl + 'todo/edit/' + todo.ID, JSON.stringify(params))
+          await axios.put(this.baseUrl + 'todo/' + todo.ID, JSON.stringify(params))
           todo.Status = status
         } catch (e) {
           console.log(e)
