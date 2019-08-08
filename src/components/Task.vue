@@ -43,7 +43,7 @@
         todoList: [],
         inputField: '',
         isActive: false,
-        baseUrl: 'http://sandbox.taisablog.com/go/api/v1/'
+        baseUrl: 'http://gin.taisablog.com/api/v1/'
         // baseUrl: 'http://localhost:9000/api/v1/'
       }
     },
