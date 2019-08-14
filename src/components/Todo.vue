@@ -9,7 +9,7 @@
                     </label>
                 </div>
                 <div class="addBtnWrapper">
-                    <button class="addBtn" @click="addTodo">Add Todo</button>
+                    <button class="addBtn" @click="addTodo">Add</button>
                 </div>
             </div>
         </section>
@@ -21,8 +21,12 @@
                             <label class="chkboxlabel">
                                 <input class="chkbox" type="checkbox" @change="toggle(todo)" v-bind:value="todo.ID" v-bind:checked="todo.Status === 3">
                             </label>
-                            <del class="" v-if="todo.Status === 3"><h5 class="todoTxt">{{ todo.Text }}</h5></del>
-                            <span v-else><h5 class="todoTxt">{{ todo.Text }}</h5></span>
+                            <span class="" v-if="todo.Status === 3">
+                                <h5 class="todoTxt Finished">{{ todo.Text }}</h5>
+                            </span>
+                            <span v-else>
+                                <h5 class="todoTxt NotStarted">{{ todo.Text }}</h5>
+                            </span>
                             <span class="deleteBtn" @click="deleteTodo(todo)">X</span>
                         </div>
 
@@ -35,6 +39,9 @@
 
 <script>
   import axios from 'axios'
+  const NOT_STARTED = 1
+  const STARTED = 2
+  const FINISHED = 3
 
   export default {
     name: "Todo",
@@ -89,10 +96,10 @@
       async toggle(todo) {
         try {
           let status = 0
-          if (todo.Status === 1) {
-            status = 3
+          if (todo.Status === NOT_STARTED) {
+            status = FINISHED
           } else {
-            status = 1
+            status = NOT_STARTED
           }
           let params = {
             'status': status
@@ -192,6 +199,12 @@
         text-align: center;
         vertical-align: middle;
         display: inline-block;
+    }
+    .todoTxt.NotStarted {
+        text-decoration: none;
+    }
+    .todoTxt.Finished {
+        text-decoration: line-through;
     }
     .deleteBtn {
         color: pink;
