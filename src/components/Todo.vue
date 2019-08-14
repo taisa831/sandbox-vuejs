@@ -5,7 +5,7 @@
             <div class="inputWrapper clearfix">
                 <div class="txtBoxWrapper">
                     <label class="ef">
-                        <input type="text" v-model="inputField" @keyup.enter="addTodo" placeholder="Todo Item">
+                        <input type="text" v-model="inputField" @keypress.enter="addTodo" placeholder="Todo Item">
                     </label>
                 </div>
                 <div class="addBtnWrapper">
@@ -37,14 +37,13 @@
   import axios from 'axios'
 
   export default {
-    name: "Product",
+    name: "Todo",
     data() {
       return {
         todoList: [],
         inputField: '',
         isActive: false,
         baseUrl: 'http://gin.taisablog.com/api/v1/'
-        // baseUrl: 'http://localhost:9000/api/v1/'
       }
     },
     created() {
@@ -119,7 +118,7 @@
     }
     .inputWrapper {
         position: relative;
-        width: 280px;
+        width: 380px;
         margin: auto;
         display: block;
     }
@@ -140,6 +139,7 @@
     }
     .txtBoxWrapper {
         float: left;
+        width: 270px;
     }
     .addBtnWrapper {
         float: right;
@@ -147,7 +147,6 @@
     .addBtn {
         position: relative;
         display: block;
-        padding: 0.25em 0.5em;
         text-decoration: none;
         color: #FFF;
         background: #007bff;
@@ -172,14 +171,16 @@
     }
     .todo {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
         height: 100%;
-        align-items: center;
     }
     .chkboxlabel {
-        width: 100%;
+        width: 20px;
         display: inline-block;
         text-align: left;
+        margin-right: 10px;
     }
     .chkbox {
         transform: scale(1.3);
@@ -190,12 +191,14 @@
         width: 100%;
         text-align: center;
         vertical-align: middle;
+        display: inline-block;
     }
     .deleteBtn {
         color: pink;
         text-align: right;
         margin-right: 20px;
-        width: 100%;
+        margin-left: 10px;
+        width: 20px;
         display: block;
         font-size: 20px;
         cursor: pointer;
