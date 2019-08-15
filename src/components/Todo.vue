@@ -40,9 +40,9 @@
 <script>
   import axios from 'axios'
 
-  const NOT_STARTED = 1
-  const STARTED = 2
-  const FINISHED = 3
+  const NOT_STARTED = 1 // 未対応
+  const STARTED = 2 // 対応中
+  const FINISHED = 3 // 完了
 
   export default {
     name: "Todo",
